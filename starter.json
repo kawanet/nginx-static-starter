@@ -8,7 +8,7 @@
     "starter.parameters": {
         "project": "Project name",
         "host": "Hostname",
-        "path": "Path to project root",
+        "path": "Project root path",
         "repository": "git repository URL"
     }
 }

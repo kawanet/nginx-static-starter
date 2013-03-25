@@ -1,13 +1,21 @@
 server {
   listen 8000;
-  # server_name 127.0.0.1;
+  server_name mydomain.com;
   access_log ./logs/myproject-development.access.log;
 
   location / {
     root ./public;
     index index.html;
+
+    # auth_basic "Please enter username and password";
+    # auth_basic_user_file ../../htpasswd;
   }
   
+  # Health test  
+  if ($request_uri ~* "^/ok$") {
+    return 200;
+  }
+
   # Block all svn access
   if ($request_uri ~* "^.*¥.svn") {
     return 404;

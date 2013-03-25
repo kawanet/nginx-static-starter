@@ -1,6 +1,7 @@
 *~
 node_modules
-./components
+components
+logs
 .DS_Store
 .Thumbs
 ._*

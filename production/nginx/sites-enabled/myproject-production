@@ -1,11 +1,19 @@
 server {
   listen 80;
   server_name mydomain.com;
-  access_log  /var/log/nginx/myproject-staging.access.log;
+  access_log  /var/log/nginx/myproject.access.log;
 
   location / {
     root /home/webservice/myproject/public;
     index index.html;
+
+    # auth_basic "Please enter username and password";
+    # auth_basic_user_file /home/webservice/myproject/htpasswd;
+  }
+
+  # Health test
+  if ($request_uri ~* "^/ok$") {
+    return 200;
   }
   
   # Block all svn access
