@@ -1,0 +1,20 @@
+server {
+  listen 8000;
+  # server_name 127.0.0.1;
+  access_log ./logs/myproject-development.access.log;
+
+  location / {
+    root ./public;
+    index index.html;
+  }
+  
+  # Block all svn access
+  if ($request_uri ~* "^.*¥.svn") {
+    return 404;
+  }
+  
+  # Block all git access
+  if ($request_uri ~* "^.*¥.git") {
+    return 404;
+  }
+}

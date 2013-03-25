@@ -1,0 +1,20 @@
+server {
+  listen 80;
+  server_name mydomain.com;
+  access_log  /var/log/nginx/myproject.access.log;
+
+  location / {
+    root /home/webservice/myproject/public;
+    index index.html;
+  }
+  
+  # Block all svn access
+  if ($request_uri ~* "^.*¥.svn") {
+    return 404;
+  }
+  
+  # Block all git access
+  if ($request_uri ~* "^.*¥.git") {
+    return 404;
+  }
+}

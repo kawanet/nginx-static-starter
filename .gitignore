@@ -1,0 +1,7 @@
+*~
+node_modules
+./components
+.DS_Store
+.Thumbs
+._*
+.idea

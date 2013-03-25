@@ -1,0 +1,14 @@
+{
+    "name": "nginx-static-starter",
+    "project": "myproject",
+    "host": "mydomain.com",
+    "path": "/home/webservice/myproject",
+    "repository": "git://github.com/kawanet/nginx-static-starter.git",
+    "starter.version": "1.0",
+    "starter.parameters": {
+        "project": "Project name",
+        "host": "Hostname",
+        "path": "Path to project root",
+        "repository": "git repository URL"
+    }
+}
