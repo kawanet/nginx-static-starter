@@ -17,12 +17,12 @@ server {
   }
 
   # Block all svn access
-  if ($request_uri ~* "^.*¥.svn") {
+  if ($request_uri ~* "/\.svn") {
     return 404;
   }
   
   # Block all git access
-  if ($request_uri ~* "^.*¥.git") {
+  if ($request_uri ~* "/\.git") {
     return 404;
   }
 }
