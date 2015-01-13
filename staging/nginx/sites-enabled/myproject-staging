@@ -3,26 +3,15 @@ server {
   server_name mydomain.com;
   access_log  /var/log/nginx/myproject-staging.access.log;
 
+  location /ok {
+    return 200;
+  }
+
   location / {
     root /home/webservice/myproject/public;
     index index.html;
 
     # auth_basic "Please enter username and password";
     # auth_basic_user_file /home/webservice/myproject/htpasswd;
-  }
-  
-  # Health test
-  if ($request_uri ~* "^/ok$") {
-    return 200;
-  }
-
-  # Block all svn access
-  if ($request_uri ~* "/\.svn") {
-    return 404;
-  }
-  
-  # Block all git access
-  if ($request_uri ~* "/\.git") {
-    return 404;
   }
 }
